@@ -1,0 +1,13 @@
+{% extends 'user_registration/base.html' %}
+{% load static %}
+    {% block description %}Index page quiz application{% endblock%}
+    {% block robots %}index, follow {% endblock %}
+    {% block keywords %}Home, Quiz Application{% endblock %}
+    {% block css %} {% static "user_registration/register.css" %} {% endblock %}
+    {% block title %}Home{% endblock %}
+    {% block body %}
+    {% include 'includes/nav.html' %}
+<section>
+    <h1 class="title">Welcome {{ user.first_name }} to Quiz Application!</h1>
+</section>
+{% endblock body %}

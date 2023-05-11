@@ -1,0 +1,84 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+.title {
+    text-align: center;
+}
+/* --------------- navigation bar style ------------------*/
+
+.main-nav {
+    background-color: #dedeec;
+    padding: 10px;
+        padding: 10px;
+        display: flex;
+        justify-content: flex-end;
+        column-gap: 40px;
+        padding-top: 18px;
+  
+}
+
+.main-nav a {
+    font-size: 20px;
+    color: #3C404A;
+    text-decoration: none;
+    transition-duration: 0.3s;
+    
+}
+
+.main-nav a:hover {
+    color: #fb6376;
+    
+}
+
+#selected {
+    color: #5762D5
+}
+
+/* --------------- Form ------------------*/
+form {
+    width: 400px;
+    background-color: #eeeff1;
+    border: solid 1px #3c404a1e;
+    border-radius: 15px;
+    color: #3d3d3d;
+    padding: 25px;
+    margin: 50px auto;
+}
+
+p input {
+    width: 94%;
+    font-size: 18px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
+    margin: 5px 0 15px 0;
+}
+
+
+/* input submit button */
+input[type="submit"] {
+    width: 100%;
+    background-color: #5762D5;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 10px 0;
+    font-size: 20px;
+    font-weight: bold;
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #6370e7;
+    cursor: pointer;
+}
+
+/* input type file button */
+#id_profile_image {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 12px 12px;
+    cursor: pointer;
+}

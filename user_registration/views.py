@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from .forms import UserForm, UserInfoForm
 
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
@@ -9,6 +9,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import UserInfo
 from django.contrib.auth.forms import PasswordChangeForm
+
+
+from django.contrib import messages
 
 
 # Create your views here.
@@ -113,3 +116,23 @@ def change_password(request, id):
         "user_registration/change_password.html",
         {"password_form": password_form},
     )
+
+
+"""This function uploads images"""
+def upload_profile_image(request, id):
+    user = get_object_or_404(User, id=id)
+    try:
+        user_info = UserInfo.objects.get(user=user)
+    except UserInfo.DoesNotExist:
+        user_info = UserInfo(user=user)
+        user_info.save()
+    if request.method == 'POST':
+        form = UserInfoForm(request.POST, request.FILES, instance=user_info)
+        if form.is_valid():
+            form.save()
+            return redirect('user_registration:user_profile', id=id)
+    else:
+        form = UserInfoForm(instance=user_info)
+    return render(request, 'user_registration/upload_profile_image.html', {'form':form})
+   
+

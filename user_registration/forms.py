@@ -13,6 +13,10 @@ class UserForm(forms.ModelForm):
 
 
 class UserInfoForm(forms.ModelForm):
+    profile_image = forms.ImageField(required=False)
     class Meta():
         model = UserInfo
         fields = ('address', 'phone', 'profile_image')
+        
+        
+        

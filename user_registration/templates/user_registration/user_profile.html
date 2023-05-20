@@ -4,7 +4,7 @@
 {% block body %}
 {% include 'includes/nav.html' %}
     <h1 class="title">User Profile </h1>
-    {{user.id}}
+    {% comment %} {{user.id}} {% endcomment %}
   <p><strong>Username:</strong> @<em>{{ user.username }}</em></p>
   <p><strong>Name:</strong> {{ user.first_name }} {{ user.last_name }}</p>
   <p><strong>Email:</strong> {{ user.email }}</p>
@@ -12,7 +12,8 @@
   <p><strong>Phone:</strong> {{ user_info.phone }}</p>
   {% if user_info.profile_image %}
     <img width=100 src="{{ user_info.profile_image.url }}" alt="{{ user.get_full_name }} Profile Image">
-    <a href="{% url 'user_registration:upload_profile_image' user.id %}">change image</a>
+    <p><a href="{% url 'user_registration:upload_profile_image' user.id %}">change image</a></p>
+    <p><a href="{% url 'user_registration:update_profile' user.id %}">Update Your Profile</a></p>
 {% endif %}
 
 {% endblock %}
